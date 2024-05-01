@@ -1,0 +1,11 @@
+
+<div style="box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1); width: 1150px; margin-left: 180px; height: auto;" *ngIf="isLoggedIn">
+    <p style="padding-top: 15px; padding-left: 15px; padding-right: 15px;">Employee Name: {{ employeeName }}</p>
+    <p style="padding-top: 15px; padding-left: 15px; padding-right: 15px;">Company Name: {{ companyName }}</p>
+    <p style="padding-top: 15px; padding-left: 15px; padding-right: 15px;">Policy Name: {{policyName}}</p>
+    <p style="padding-top: 15px; padding-left: 15px; padding-right: 15px; padding-bottom: 15px;">Policy Period: {{startDate}} to {{endDate}}</p>
+  </div>
+   <div *ngIf="!isLoggedIn">
+     <p>Please log in to view your information.</p> 
+    </div>  
+    

@@ -1,0 +1,60 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 m-4 p-3 mx-auto shadow rounded" style="background-color: rgb(223, 241, 198);">
+    <form (ngSubmit)="paymentDetails(form.cardNumber,form.cardExpiry,form.cardOwner )" #loginForm="ngForm">
+    <legend>Payment Detail Register</legend>
+    <div class="col-md-7">
+        <label>Card Owner Name</label>
+        <input class="form-control" #name="ngModel" placeholder="Full Name" name="name" type="text" [(ngModel)]="form.cardOwner" required>
+    </div>
+    <div class="col-md-7">
+        <label>Card Number</label>
+        <input class="form-control" type="text" maxlength="16" name="number" [(ngModel)]="form.cardNumber" required>
+    </div>
+    <div class="col-md-7">  
+        <label>Card Expiry Date</label>
+        <input class="form-control" type="date" name="expiry" [(ngModel)]="form.cardExpiry" required>
+    </div>
+    <button class="btn btn-primary m-3" type="submit">Submit</button>
+</form>
+</div>
+
+
+<!-- <div style="margin-right: 300px; width: 500px; height: auto; border: 5px; border-style: dashed; border-color: blue; box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);"> -->
+    <!-- <p>{{cardOwner}}</p> -->
+
+    <div class="col-md-8">
+        <div style="margin-left: 300px; width: 500px; height: auto;">
+            <h2>Payment Details</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Card Owner</th>
+                        <th>Card Number</th>
+                        <th>Card Expiry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of payments">
+                        <td>{{ payment.cardOwner }}</td>
+                        <td>{{ payment.cardNumber }}</td>
+                        <td>{{ payment.cardExpiry | date: 'medium' }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="deletePayment(payment)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<!-- </div> -->
+
+<!-- <ng-container *ngFor="let payment of loadPayments();">       -->
+    <!-- <app-book (bookEmitter)="addToCart($event)" [book]="singlebook"></app-book> -->
+<!-- </ng-container> -->
